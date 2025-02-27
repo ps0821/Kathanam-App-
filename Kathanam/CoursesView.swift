@@ -7,98 +7,130 @@
 
 import SwiftUI
 
+// MARK: - Course Model
 struct Course: Identifiable {
-    let id = UUID() // Unique identifier
+    let id = UUID()
     let title: String
     let description: String
     let icon: String
-    let imageName: String // New property for course image
+    let imageName: String
+    let subCourses: [SubCourse]
 }
 
+// MARK: - SubCourse Model
+struct SubCourse: Identifiable {
+    let id = UUID()
+    let title: String
+    let description: String
+}
+
+// MARK: - CoursesView
 struct CoursesView: View {
-    // Example data for courses
+    // Example data for courses with sub-courses
     let courses: [Course] = [
         Course(
             title: "Indian Sign Language (ISL)",
-            description: "Indian Sign Language (ISL) is used by the deaf community in India. Learn hand gestures and expressions that are crucial for communication.",
-            icon: "leaf",
-            imageName: "isl" // Replace with your image name
+            description: "Learn ISL hand gestures and expressions used in India.",
+            icon: "hands.sparkles.fill",
+            imageName: "isl",
+            subCourses: [
+                SubCourse(title: "Basic ISL", description: "Learn the fundamental signs and gestures."),
+                SubCourse(title: "ISL for Daily Conversation", description: "Common phrases and sentences in ISL."),
+                SubCourse(title: "ISL for Professional Use", description: "Using ISL in workplaces and official settings.")
+            ]
         ),
         Course(
             title: "American Sign Language (ASL)",
-            description: "American Sign Language (ASL) is the primary sign language of the United States. Learn essential signs for communication and conversation.",
-            icon: "leaf",
-            imageName: "asl" // Replace with your image name
+            description: "Learn ASL used in the United States for communication.",
+            icon: "hands.and.sparkles.fill",
+            imageName: "asl",
+            subCourses: [
+                SubCourse(title: "Basic ASL", description: "Introduction to essential ASL signs."),
+                SubCourse(title: "ASL for Family Communication", description: "Learn signs used in family conversations."),
+                SubCourse(title: "Advanced ASL Grammar", description: "Mastering ASL structure and grammar.")
+            ]
         ),
         Course(
             title: "Autistic Communication",
-            description: "Autistic communication focuses on supporting individuals with autism through various communication techniques and strategies.",
-            icon: "leaf",
-            imageName: "autistic" // Replace with your image name
+            description: "Support for individuals with autism through various communication methods.",
+            icon: "person.crop.circle.badge.checkmark",
+            imageName: "autistic",
+            subCourses: [
+                SubCourse(title: "Visual Communication", description: "Using visuals for enhanced communication."),
+                SubCourse(title: "Speech Therapy Basics", description: "Speech strategies for autistic individuals."),
+                SubCourse(title: "Sensory-Friendly Communication", description: "Adapting communication for sensory needs.")
+            ]
         )
     ]
-
-    @State private var selectedTab: Tab = .courses // To manage tab navigation
-
+    
     var body: some View {
         NavigationView {
             ZStack {
-                // Background gradient
+                // ✅ Background gradient
                 LinearGradient(
                     gradient: Gradient(colors: [Color.orange, Color.white]),
                     startPoint: .top,
                     endPoint: .bottom
                 )
                 .ignoresSafeArea()
-
-                VStack(alignment: .leading, spacing: 10) {
-                    // MARK: Courses Heading
+                
+                VStack(alignment: .leading, spacing: 20) {
+                    
+                    // ✅ Header Section
                     Text("Courses")
                         .font(.system(size: 28, weight: .bold))
                         .foregroundColor(.black)
                         .padding(.horizontal)
-                        .padding(.top, 10)
+                        .padding(.top, 20)
 
-                    // MARK: Search Bar
-                    HStack {
-                        Image(systemName: "magnifyingglass")
-                            .foregroundColor(.gray)
-                        TextField("Search", text: .constant(""))
-                            .textFieldStyle(PlainTextFieldStyle())
-                    }
-                    .padding()
-                    .background(Color.white.opacity(0.5))
-                    .cornerRadius(10)
-                    .padding(.horizontal)
-
+                    // ✅ Search Bar
+                    searchBar()
+                    
                     ScrollView {
                         VStack(spacing: 20) {
-                            // List of courses
+                            // ✅ List of courses with navigation
                             ForEach(courses) { course in
-                                courseCard(course: course)
+                                NavigationLink(destination: SubCoursesView(subCourses: course.subCourses, courseTitle: course.title)) {
+                                    courseCard(course: course)
+                                }
                             }
                         }
                         .padding(.horizontal)
                     }
-
-                    // Bottom Navigation Bar
-                    bottomNavigationBar()
+                    
+                    Spacer(minLength: 20) // Prevent overlap with bottom
                 }
             }
         }
     }
+    
+    // MARK: - Search Bar
+    func searchBar() -> some View {
+        HStack {
+            Image(systemName: "magnifyingglass")
+                .foregroundColor(.gray)
+            TextField("Search", text: .constant(""))
+                .textFieldStyle(PlainTextFieldStyle())
+        }
+        .padding()
+        .frame(width: 350, height: 45)
+        .background(Color.white.opacity(0.5))
+        .cornerRadius(10)
+        .padding(.horizontal)
+    }
 
-    // MARK: Course Card
+    // MARK: - Course Card
     func courseCard(course: Course) -> some View {
-        VStack(alignment: .leading, spacing: 40) {
-            // Course image
+        VStack(alignment: .leading, spacing: 15) {
+            // ✅ Course Image
             Image(course.imageName)
                 .resizable()
-                .scaledToFit()
+                .scaledToFill()
+                .frame(width: 350, height: 220)
                 .cornerRadius(10)
 
-            // Course details
-            VStack(alignment: .leading, spacing: 10) {
+            // ✅ Course Details
+            VStack(alignment: .leading, spacing: 8) {
                 Text(course.title)
                     .font(.headline)
                     .foregroundColor(.black)
@@ -106,80 +138,82 @@ struct CoursesView: View {
                 Text(course.description)
                     .font(.subheadline)
                     .foregroundColor(.gray)
-                    .lineLimit(3) // Limit description to 3 lines
+                    .lineLimit(2)
+            }.padding(.leading, 10)
+
+            // ✅ Navigation Arrow
+            HStack {
+                Spacer()
+                Image(systemName: "chevron.right")
+                    .foregroundColor(.gray)
             }
         }
         .padding()
+        .frame(width: 350)
         .background(Color.white)
         .cornerRadius(10)
         .shadow(radius: 3)
     }
+}
 
+// MARK: - SubCoursesView (Displays Sub-Courses)
+struct SubCoursesView: View {
+    let subCourses: [SubCourse]
+    let courseTitle: String
 
-    // MARK: Bottom Navigation Bar
-    func bottomNavigationBar() -> some View {
+    var body: some View {
         ZStack {
-            // Gradient background for bottom navigation bar
+            // ✅ Background Gradient
             LinearGradient(
-                gradient: Gradient(colors: [Color.white.opacity(0.7), Color.green.opacity(100)]),
+                gradient: Gradient(colors: [Color.orange, Color.white]),
                 startPoint: .top,
                 endPoint: .bottom
             )
-            .blur(radius: 200) // Add blur to blend the edges smoothly
-            .ignoresSafeArea(edges: .bottom) // Extend to the bottom edge of the screen
+            .ignoresSafeArea()
 
-            HStack {
-                ForEach(Tab.allCases, id: \.self) { tab in
-                    Spacer()
-                    VStack {
-                        Image(systemName: tab.icon)
-                            .resizable()
-                            .frame(width: 25, height: 25)
-                            .foregroundColor(tab == selectedTab ? .orange : .gray)
+            VStack(alignment: .leading, spacing: 10) {
+                // ✅ Title
+                Text("\(courseTitle) - Sub Courses")
+                    .font(.title2)
+                    .bold()
+                    .foregroundColor(.black)
+                    .padding(.top, 20)
+                    .padding(.horizontal)
 
-                        Text(tab.title)
-                            .font(.system(size: 12))
-                            .foregroundColor(tab == selectedTab ? .orange : .gray)
+                ScrollView {
+                    VStack(spacing: 15) {
+                        ForEach(subCourses) { subCourse in
+                            subCourseCard(subCourse: subCourse)
+                        }
                     }
-                    .onTapGesture {
-                        selectedTab = tab
-                    }
-                    Spacer()
+                    .padding(.leading)
                 }
-            }
-            .frame(height: 70) // Maintain a consistent height for the navigation bar
-        }
-        .frame(height: 70) // Frame wrapping the entire navigation bar
-    }
-    
-}
 
-// MARK: Tab Enum for Bottom Navigation
-//enum Tab: CaseIterable {
-//    case home, courses, translate, shots, profile
-//
-//    var title: String {
-//        switch self {
-//        case .home: return "Home"
-//        case .courses: return "Courses"
-//        case .translate: return "Translate"
-//        case .shots: return "Shots"
-//        case .profile: return "Dashboard"
-//        }
-//    }
-//
-//    var icon: String {
-//        switch self {
-//        case .home: return "house.fill"
-//        case .courses: return "book.fill"
-//        case .translate: return "textformat.size"
-//        case .shots: return "play.rectangle.fill"
-//        case .profile: return "person.fill"
-//        }
-//    }
-//}
+                Spacer(minLength: 20) // Prevent overlap with bottom
+            }
+        }
+    }
+
+    // MARK: - SubCourse Card
+    func subCourseCard(subCourse: SubCourse) -> some View {
+        VStack(alignment: .leading, spacing: 10) {
+            Text(subCourse.title)
+                .font(.headline)
+                .foregroundColor(.black)
+            
+            Text(subCourse.description)
+                .font(.subheadline)
+                .foregroundColor(.gray)
+                .lineLimit(3)
+        }
+        .padding()
+        .frame(width: 350)
+        .background(Color.white)
+        .cornerRadius(10)
+        .shadow(radius: 3)
+    }
+}
 
 #Preview {
     CoursesView()
 }
-

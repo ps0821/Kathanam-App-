@@ -16,6 +16,16 @@
 		39F56BDE2D58B1FC00F0D7C3 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F56BDD2D58B1FC00F0D7C3 /* LoginView.swift */; };
 		39F56BE02D58B6C400F0D7C3 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F56BDF2D58B6C400F0D7C3 /* RegisterView.swift */; };
 		39F56BE22D58BF4200F0D7C3 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F56BE12D58BF4200F0D7C3 /* HomeView.swift */; };
+		57530C2E2D6F743100DABB9B /* TranslateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57530C2D2D6F743100DABB9B /* TranslateView.swift */; };
+		57530C312D6F747A00DABB9B /* SignToTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57530C302D6F747A00DABB9B /* SignToTextView.swift */; };
+		57530C332D6F749700DABB9B /* CameraHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57530C322D6F749700DABB9B /* CameraHandler.swift */; };
+		57530C352D6F74AC00DABB9B /* TextToSpeechView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57530C342D6F74AC00DABB9B /* TextToSpeechView.swift */; };
+		57530C372D6F76E300DABB9B /* CameraPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57530C362D6F76E300DABB9B /* CameraPreview.swift */; };
+		57530C392D6F779200DABB9B /* TextToAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57530C382D6F779200DABB9B /* TextToAnimationView.swift */; };
+		57530C3C2D6F791600DABB9B /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57530C3B2D6F791600DABB9B /* TabBar.swift */; };
+		57530C3E2D6F79AE00DABB9B /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57530C3D2D6F79AE00DABB9B /* MainTabView.swift */; };
+		57530C402D6F812E00DABB9B /* ShortsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57530C3F2D6F812E00DABB9B /* ShortsView.swift */; };
+		57530C422D6F814100DABB9B /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57530C412D6F814100DABB9B /* ProfileView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +39,16 @@
 		39F56BDD2D58B1FC00F0D7C3 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		39F56BDF2D58B6C400F0D7C3 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		39F56BE12D58BF4200F0D7C3 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		57530C2D2D6F743100DABB9B /* TranslateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateView.swift; sourceTree = "<group>"; };
+		57530C302D6F747A00DABB9B /* SignToTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignToTextView.swift; sourceTree = "<group>"; };
+		57530C322D6F749700DABB9B /* CameraHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraHandler.swift; sourceTree = "<group>"; };
+		57530C342D6F74AC00DABB9B /* TextToSpeechView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextToSpeechView.swift; sourceTree = "<group>"; };
+		57530C362D6F76E300DABB9B /* CameraPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPreview.swift; sourceTree = "<group>"; };
+		57530C382D6F779200DABB9B /* TextToAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextToAnimationView.swift; sourceTree = "<group>"; };
+		57530C3B2D6F791600DABB9B /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
+		57530C3D2D6F79AE00DABB9B /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
+		57530C3F2D6F812E00DABB9B /* ShortsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortsView.swift; sourceTree = "<group>"; };
+		57530C412D6F814100DABB9B /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +81,8 @@
 		39F56BCC2D58A75800F0D7C3 /* Kathanam */ = {
 			isa = PBXGroup;
 			children = (
+				57530C2F2D6F745600DABB9B /* Translator */,
+				57530C2C2D6F742200DABB9B /* Views */,
 				39F56BCD2D58A75800F0D7C3 /* KathanamApp.swift */,
 				39F56BCF2D58A75800F0D7C3 /* ContentView.swift */,
 				39F56BDB2D58AE3100F0D7C3 /* LoginRegisterView.swift */,
@@ -70,6 +92,8 @@
 				39D758562D61F994002BCB0C /* CoursesView.swift */,
 				39F56BD12D58A75900F0D7C3 /* Assets.xcassets */,
 				39F56BD32D58A75900F0D7C3 /* Preview Content */,
+				57530C3B2D6F791600DABB9B /* TabBar.swift */,
+				57530C3D2D6F79AE00DABB9B /* MainTabView.swift */,
 			);
 			path = Kathanam;
 			sourceTree = "<group>";
@@ -80,6 +104,28 @@
 				39F56BD42D58A75900F0D7C3 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		57530C2C2D6F742200DABB9B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				57530C2D2D6F743100DABB9B /* TranslateView.swift */,
+				57530C3F2D6F812E00DABB9B /* ShortsView.swift */,
+				57530C412D6F814100DABB9B /* ProfileView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		57530C2F2D6F745600DABB9B /* Translator */ = {
+			isa = PBXGroup;
+			children = (
+				57530C302D6F747A00DABB9B /* SignToTextView.swift */,
+				57530C322D6F749700DABB9B /* CameraHandler.swift */,
+				57530C342D6F74AC00DABB9B /* TextToSpeechView.swift */,
+				57530C362D6F76E300DABB9B /* CameraPreview.swift */,
+				57530C382D6F779200DABB9B /* TextToAnimationView.swift */,
+			);
+			path = Translator;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -153,12 +199,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				39F56BD02D58A75800F0D7C3 /* ContentView.swift in Sources */,
+				57530C392D6F779200DABB9B /* TextToAnimationView.swift in Sources */,
+				57530C332D6F749700DABB9B /* CameraHandler.swift in Sources */,
 				39F56BE02D58B6C400F0D7C3 /* RegisterView.swift in Sources */,
+				57530C352D6F74AC00DABB9B /* TextToSpeechView.swift in Sources */,
 				39F56BDC2D58AE3100F0D7C3 /* LoginRegisterView.swift in Sources */,
 				39F56BE22D58BF4200F0D7C3 /* HomeView.swift in Sources */,
+				57530C312D6F747A00DABB9B /* SignToTextView.swift in Sources */,
 				39F56BDE2D58B1FC00F0D7C3 /* LoginView.swift in Sources */,
+				57530C422D6F814100DABB9B /* ProfileView.swift in Sources */,
+				57530C402D6F812E00DABB9B /* ShortsView.swift in Sources */,
 				39D758572D61F994002BCB0C /* CoursesView.swift in Sources */,
+				57530C372D6F76E300DABB9B /* CameraPreview.swift in Sources */,
 				39F56BCE2D58A75800F0D7C3 /* KathanamApp.swift in Sources */,
+				57530C2E2D6F743100DABB9B /* TranslateView.swift in Sources */,
+				57530C3C2D6F791600DABB9B /* TabBar.swift in Sources */,
+				57530C3E2D6F79AE00DABB9B /* MainTabView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -292,13 +348,16 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Kathanam/Preview Content\"";
+				DEVELOPMENT_TEAM = YFY6QY43LP;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "We need access to the camera for sign recognition.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_PREPROCESS = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -320,13 +379,16 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Kathanam/Preview Content\"";
+				DEVELOPMENT_TEAM = YFY6QY43LP;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "We need access to the camera for sign recognition.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_PREPROCESS = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

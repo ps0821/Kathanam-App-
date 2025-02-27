@@ -127,7 +127,7 @@ struct RegisterView: View {
                     }
                     
                     // NavigationLink to HomeView
-                    NavigationLink(destination: HomeView(), isActive: $navigateToHome) {
+                    NavigationLink(destination: MainTabView(), isActive: $navigateToHome) {
                         EmptyView()
                     }
                     
